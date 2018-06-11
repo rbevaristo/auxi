@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { JarwisService } from '../../Services/jarwis.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterComponent implements OnInit {
 
   
-  constructor(private http:HttpClient) { }
+  constructor(private Jarwis:JarwisService) { }
 
   public form = {
     email: null,
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
   public error = [];
 
   onSubmit() {
-    return this.http.post('http://localhost:8000/api/register', this.form).subscribe(
+    return this.Jarwis.register(this.form).subscribe(
       data => console.log(data),
       error => this.handleError(error)
     );
