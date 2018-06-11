@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  
+  public error = null;
+
   constructor(private http:HttpClient) { }
 
   public form = {
@@ -19,8 +20,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     return this.http.post('http://localhost:8000/api/login', this.form).subscribe(
       data => console.log(data),
-      error => console.log(error)
+      error => this.handleError(error)
     );
+  }
+
+  handleError(error){
+    this.error = error.error.error;
   }
 
   ngOnInit() {

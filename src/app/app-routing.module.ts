@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   {
     path: 'response-password-reset',
     component: ResponseResetComponent,
-  },
+  }
 ];
 
 @NgModule({
