@@ -21,7 +21,10 @@ export class ResponseResetComponent implements OnInit {
 
   constructor(private route:ActivatedRoute, private jarwis: JarwisService, private router: Router, private notify: SnotifyService) { 
     route.queryParams.subscribe(params => {
-      this.form.resetToken = params['token'];
+      [
+        this.form.resetToken = params['token'],
+        this.form.email = params['email']
+      ]
     });
   }
 
@@ -29,7 +32,7 @@ export class ResponseResetComponent implements OnInit {
     this.notify.info('Wait..', {timeout:3000});
     this.jarwis.changePassword(this.form).subscribe(
       data => this.handleResponse(data),
-      error => this.handleError(error)
+      error => this.checkError(error)
     )
   }
 
@@ -49,8 +52,15 @@ export class ResponseResetComponent implements OnInit {
     this.router.navigateByUrl('/login')
   }
 
-  handleError(error) {
+  checkError(error) {
     this.error = error.error.errors;
+    this.handleError(this.error);
+  }
+
+  handleError(error) {
+    for(var i = 0; i < Object.keys(error).length; i++){
+      this.notify.error(Object.keys(error).map(key=>error[key])[i], {timeout:0})
+    }
   }
 
   ngOnInit() {

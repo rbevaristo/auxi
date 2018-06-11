@@ -19,6 +19,10 @@ import { AfterLoginService } from './Services/after-login.service';
 import { BeforeLoginService } from './Services/before-login.service';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ServicesComponent } from './pages/services/services.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +32,9 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
     ProfileComponent,
     RequestResetComponent,
     ResponseResetComponent,
+    AboutComponent,
+    ContactComponent,
+    ServicesComponent,
   ],
   imports: [
     BrowserModule,
