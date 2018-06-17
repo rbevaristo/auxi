@@ -9,6 +9,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { VerifyEmailComponent } from './components/register/verify-email/verify-email.component';
+
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
@@ -22,6 +24,21 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FooterComponent } from './pages/components/footer/footer.component';
+import { CarouselComponent } from './pages/components/carousel/carousel.component';
+import { FeaturesComponent } from './pages/components/features/features.component';
+import { TeamComponent } from './pages/components/team/team.component';
+import { SocialComponent } from './pages/components/social/social.component';
+import { QuoteComponent } from './pages/components/quote/quote.component';
+
+
+
+import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
+import { FacebookLoginProvider } from "angular-6-social-login";
+import { getAuthServiceConfigs } from "./components/login/login.component";
+import { CompaniesComponent } from './components/companies/companies.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +52,15 @@ import { ServicesComponent } from './pages/services/services.component';
     AboutComponent,
     ContactComponent,
     ServicesComponent,
+    HomeComponent,
+    FooterComponent,
+    CarouselComponent,
+    FeaturesComponent,
+    TeamComponent,
+    SocialComponent,
+    QuoteComponent,
+    CompaniesComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +68,8 @@ import { ServicesComponent } from './pages/services/services.component';
     FormsModule,
     HttpClientModule,
     BrowserModule,
-    SnotifyModule
+    SnotifyModule,
+    SocialLoginModule
   ],
   providers: [
     JarwisService, 
@@ -50,8 +77,15 @@ import { ServicesComponent } from './pages/services/services.component';
     AuthService, 
     AfterLoginService, 
     BeforeLoginService, 
-    { provide: 'SnotifyToastConfig', useValue: ToastDefaults},
-    SnotifyService
+    SnotifyService,
+    { 
+      provide: 'SnotifyToastConfig', 
+      useValue: ToastDefaults
+    },
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
   ],
   bootstrap: [AppComponent]
 })

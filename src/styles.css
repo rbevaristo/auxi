@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
 @import '~bootstrap/dist/css/bootstrap.css';
+@import 'assets/css/buttons.css';
+@import 'assets/css/carousel.css';
+@import 'assets/css/custom.css';
+@import 'assets/css/features.css';
+@import 'assets/css/jumbotron.css';
+@import 'assets/css/site-footer.css';
+@import 'assets/css/site-navbar.css';
+@import 'assets/css/social.css';
 
 .ng-invalid:not(form) {
     border-left: 5px solid red;
@@ -8,4 +18,36 @@
 
 .ng-valid:not(form) {
     border-left: 5px solid green;
+}
+
+/* Login Form */
+
+.or-seperator {
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+
+.or-seperator i {
+    padding: 0 10px;
+    background: #f7f7f7;
+    position: relative;
+    top: -11px;
+    z-index: 1;
+}
+
+.social-btn .btn {
+    border: none;
+    margin: 10px 3px 0;
+    opacity: 1;
+}
+.social-btn .btn:hover {
+    opacity: 0.9;
+}
+.social-btn .btn-primary {
+    background: #507cc0;
+}
+
+.social-btn .btn-danger {
+    background: #df4930;
 }

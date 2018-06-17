@@ -1,0 +1,15 @@
+/* Navbar */
+
+.navbar {
+    padding: .8rem;
+}
+
+.navbar-nav li {
+    padding-right: 15px;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+
+/* EndNavbar */

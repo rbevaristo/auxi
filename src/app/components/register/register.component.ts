@@ -41,10 +41,8 @@ export class RegisterComponent implements OnInit {
   }
 
   handleResponse(res) {
-    this.notify.success('Congratulations!!', {timeout:0});
-    this.Token.handle(res.access_token);
-    this.auth.changeAuthStatus(true);
-    this.router.navigateByUrl('profile');
+    this.notify.success(res.data, {timeout:0});
+    this.router.navigateByUrl('login');
   }
 
   checkError(error) {

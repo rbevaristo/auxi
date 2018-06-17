@@ -19,7 +19,12 @@ export class ResponseResetComponent implements OnInit {
 
   public error = [];
 
-  constructor(private route:ActivatedRoute, private jarwis: JarwisService, private router: Router, private notify: SnotifyService) { 
+  constructor(
+    private route: ActivatedRoute, 
+    private jarwis: JarwisService,
+    private router: Router, 
+    private notify: SnotifyService
+    ) { 
     route.queryParams.subscribe(params => {
       [
         this.form.resetToken = params['token'],
