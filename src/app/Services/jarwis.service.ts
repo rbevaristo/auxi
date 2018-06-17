@@ -27,8 +27,8 @@ export class JarwisService {
     return this.http.post(`${this.baseUrl}/resetPassword`, data);
   }
 
-  facebook() {
-    return this.http.get(`${this.baseUrl}/facebook`);
+  facebook(data) {
+    return this.http.post(`${this.baseUrl}/login/facebook`, data);
   }
 
   verifyEmail(data) {

@@ -41,7 +41,7 @@ export class VerifyEmailComponent implements OnInit {
   handleResponse(res) {
     this.notify.success(res.data, {timeout:0});
     let _router = this.router;
-    this.router.navigateByUrl('/login')
+    _router.navigateByUrl('/login');
   }
 
   handleError(error){

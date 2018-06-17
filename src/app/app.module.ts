@@ -32,12 +32,13 @@ import { TeamComponent } from './pages/components/team/team.component';
 import { SocialComponent } from './pages/components/social/social.component';
 import { QuoteComponent } from './pages/components/quote/quote.component';
 
+import { SocialLoginModule,
+  AuthServiceConfig,
+  FacebookLoginProvider,
+} from "angular-6-social-login";
 
-
-import { SocialLoginModule, AuthServiceConfig } from "angular-6-social-login";
-import { FacebookLoginProvider } from "angular-6-social-login";
-import { getAuthServiceConfigs } from "./components/login/login.component";
 import { CompaniesComponent } from './components/companies/companies.component';
+import { NavComponent } from './components/profile/nav/nav.component';
 
 
 @NgModule({
@@ -60,7 +61,9 @@ import { CompaniesComponent } from './components/companies/companies.component';
     SocialComponent,
     QuoteComponent,
     CompaniesComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    NavComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -90,3 +93,15 @@ import { CompaniesComponent } from './components/companies/companies.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// Configs 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("1725955257483070")
+      }
+    ]
+  );
+  return config;
+}

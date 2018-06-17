@@ -12,6 +12,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VerifyEmailComponent } from './components/register/verify-email/verify-email.component';
+
+
 const appRoutes: Routes = [
   {
     path: '',
