@@ -12,7 +12,6 @@ export class JarwisService {
 
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data);
-
   }
 
   register(data) {
@@ -25,10 +24,6 @@ export class JarwisService {
 
   changePassword(data) {
     return this.http.post(`${this.baseUrl}/resetPassword`, data);
-  }
-
-  facebook(data) {
-    return this.http.post(`${this.baseUrl}/login/facebook`, data);
   }
 
   verifyEmail(data) {

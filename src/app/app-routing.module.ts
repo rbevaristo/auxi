@@ -12,12 +12,12 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { HomeComponent } from './pages/home/home.component';
 import { VerifyEmailComponent } from './components/register/verify-email/verify-email.component';
-
-
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [BeforeLoginService]
   },
   {
     path: 'login',
@@ -30,8 +30,8 @@ const appRoutes: Routes = [
     canActivate: [BeforeLoginService]
   },
   {
-    path: 'profile',
-    component: ProfileComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
     canActivate: [AfterLoginService]
   },
   {

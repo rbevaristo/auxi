@@ -11,6 +11,9 @@
 @import 'assets/css/site-navbar.css';
 @import 'assets/css/social.css';
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 .ng-invalid:not(form) {
     border-left: 5px solid red;
 
@@ -50,4 +53,24 @@
 
 .social-btn .btn-danger {
     background: #df4930;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.example-container {
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+
+a#brand {
+    color:#000;
+    text-decoration: none;
 }

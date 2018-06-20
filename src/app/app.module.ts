@@ -35,11 +35,30 @@ import { QuoteComponent } from './pages/components/quote/quote.component';
 import { SocialLoginModule,
   AuthServiceConfig,
   FacebookLoginProvider,
+  GoogleLoginProvider
 } from "angular-6-social-login";
 
 import { CompaniesComponent } from './components/companies/companies.component';
-import { NavComponent } from './components/profile/nav/nav.component';
 
+
+
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { 
+  MatMenuModule, 
+  MatButtonModule, 
+  MatIconModule, 
+  MatCardModule ,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatSidenavModule,
+  MatFormFieldModule,
+  MatInputModule
+} from '@angular/material';
+import 'hammerjs';
+
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +81,7 @@ import { NavComponent } from './components/profile/nav/nav.component';
     QuoteComponent,
     CompaniesComponent,
     VerifyEmailComponent,
-    NavComponent,
+    DashboardComponent,
 
   ],
   imports: [
@@ -72,7 +91,18 @@ import { NavComponent } from './components/profile/nav/nav.component';
     HttpClientModule,
     BrowserModule,
     SnotifyModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NoopAnimationsModule,
+    MatMenuModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatCardModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     JarwisService, 
@@ -100,6 +130,10 @@ export function getAuthServiceConfigs() {
       {
         id: FacebookLoginProvider.PROVIDER_ID,
         provider: new FacebookLoginProvider("1725955257483070")
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider("812292671015-549c1s642qrta5ni6ng3mlie5g0c8m2e.apps.googleusercontent.com")
       }
     ]
   );

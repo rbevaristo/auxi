@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+<!-- <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a href="#" class="navbar-brand">SomeProject</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"> 
@@ -12,9 +12,17 @@
                 <li class="nav-item"><a routerLink="contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><a routerLink="login" class="nav-link" *ngIf="!loggedIn">Login</a></li>
                 <li class="nav-item"><a routerLink="register" class="nav-link" *ngIf="!loggedIn">Register</a></li>
-                <li class="nav-item"><a routerLink="profile" class="nav-link" *ngIf="loggedIn">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" (click)="logout($event) "*ngIf="loggedIn">Logout</a></li>
+                <li class="nav-item">
+                    <a routerLink="profile" class="nav-link tooltipped" data-position="bottom" data-tooltip="Dashboard" *ngIf="loggedIn" mat-icon-button>
+                        <mat-icon>settings</mat-icon>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link tooltipped" data-position="bottom" data-tooltip="Log out" href="#" (click)="logout($event)" *ngIf="loggedIn" mat-icon-button>
+                        <mat-icon>exit_to_app</mat-icon>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
-</nav>
+</nav> -->

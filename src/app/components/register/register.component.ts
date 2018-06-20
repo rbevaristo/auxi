@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { JarwisService } from '../../Services/jarwis.service';
 import { TokenService } from '../../Services/token.service';
 import { Router } from '@angular/router';
@@ -16,9 +15,7 @@ export class RegisterComponent implements OnInit {
   
   constructor(
     private Jarwis:JarwisService,
-    private Token:TokenService,
     private router : Router,
-    private auth: AuthService,
     private notify: SnotifyService
   ) { }
 

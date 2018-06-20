@@ -39,10 +39,11 @@ export class LoginComponent implements OnInit {
     password: null
   };
 
-  public fbform = {
+  public socialform = {
     name: null,
     email: null,
-    password: null
+    password: null,
+    action: null
   };
 
   onSubmit() {
@@ -57,17 +58,34 @@ export class LoginComponent implements OnInit {
     this.notify.success('You are now logged in.');
     this.Token.handle(data.access_token);
     this.auth.changeAuthStatus(true);
-    this.router.navigateByUrl('/profile');
+    this.router.navigateByUrl('/dashboard');
   }
 
   facebook() {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
       (userData) => {
-        this.fbform.name = userData.name;
-        this.fbform.email = userData.email;
-        this.fbform.password = '123456';
+        this.socialform.name = userData.name;
+        this.socialform.email = userData.email;
+        this.socialform.password = '123456';
+        this.socialform.action = 'social';
         this.notify.info('Processing..', {timeout:2000});
-        this.Jarwis.facebook(this.fbform).subscribe( 
+        this.Jarwis.login(this.socialform).subscribe( 
+          data => this.handleResponse(data),
+          error => this.notify.error(error.error.error, {timeout:0})
+        ); 
+      }
+    );
+  }
+
+  google() {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      (userData) => {
+        this.socialform.name = userData.name;
+        this.socialform.email = userData.email;
+        this.socialform.password = '123456';
+        this.socialform.action = 'social';
+        this.notify.info('Processing..', {timeout:2000});
+        this.Jarwis.login(this.socialform).subscribe( 
           data => this.handleResponse(data),
           error => this.notify.error(error.error.error, {timeout:0})
         ); 
